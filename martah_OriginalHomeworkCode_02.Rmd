@@ -8,3 +8,16 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+Alright I'm starting with an attempt to use poissson distribution.
+
+``` {r poisson}
+x<- rpois(1, 15) #where 1 is the n value since its 15 is the  mean of the two hours and 15 is the mean or lambda
+x
+```
+``` {r lessthan}
+ppois(8, (rpois(1, 15)), lower=FALSE) #I can't tell if I should be running lambda as 15 for the mean or x where x is the rpois? or as i put here, lmbda being the function of rpois?
+```
+``` {r nocalls}
+dpois(20, 15) #same problem but this time i set lambda as 15
+```
