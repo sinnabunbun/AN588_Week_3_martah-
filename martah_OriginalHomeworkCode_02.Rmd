@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Alright I'm starting with an attempt to use poissson distribution.
+Alright I'm starting with an attempt to use poissson distribution. _Sorry in advance Zoe :,)_
 
 ``` {r poisson}
 x<- rpois(1, 15) #where 1 is the n value since its 15 is the  mean of the two hours and 15 is the mean or lambda
@@ -19,5 +19,30 @@ x
 ppois(8, (rpois(1, 15)), lower=FALSE) #I can't tell if I should be running lambda as 15 for the mean or x where x is the rpois? or as i put here, lmbda being the function of rpois?
 ```
 ``` {r nocalls}
-dpois(20, 15) #same problem but this time i set lambda as 15
+dpois(0, 15) #same problem but this time i set lambda as 15
 ```
+``` {r 3calls}
+dpois(3, 15)
+```
+All these probabilities are incredibly low which is why I don't trust I'm using the right function.
+``` {r 1-30}
+calls<- 0:30
+plot(calls, dpois(calls, 15))
+```
+``` {r 104}
+exampledist<- rpois(104, 15)
+exampledist
+```
+``` {r hist}
+hist(exampledist, freq = FALSE, col = "blue", main = "Titi Calls Over 2 Years", xlab = "unknown",
+    ylab = "uk", xlim = c(0, 30))
+```
+I am so confused on the y-axis, this is coming up as more of a barplot than I wanted??? I want to see the individual points for each weekend but I have no clue what is missing? I'm still struggling with packages so I think ggplot and manipulate are what I need but I'm not sure how.
+
+## Challenges
+
+1. I'm very concerned with how low my probabilities are in the first section, part of the problem is I'm not sure of the magnitude of the values like should they be over 1, under 1, etc.?
+2. With lambda, if I use `x` that is a variable variable if that makes sense. It vastly changes the results if I use x, 15 (the mean), or the function itself. I simply do not know what is the proper lambda is??
+3. This is a content question, I am not sure when I should be assigning functions to an element. The examples will usually use the function every time but I'm not sure.
+4. The syntax for `rpois` was really confusing a first and now I'm worried it seems to easy. I am operating on (number of vectors, mean) essentially.
+5. In the final histogram I mention this but I want this plotted with a point for every weekend, not a barplot of overall means. I'm not sure a) how to do this and b) if I'm even suppose to be doing this
