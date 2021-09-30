@@ -64,6 +64,6 @@ I am so confused on the y-axis, this is coming up as more of a barplot than I wa
   ###ZOE:I also struggled with this.  I think 15 has more significance than just her hypothesis. 
 3. This is a content question, I am not sure when I should be assigning functions to an element. The examples will usually use the function every time but I'm not sure.    
 4. The syntax for `rpois` was really confusing a first and now I'm worried it seems to easy. I am operating on (number of vectors, mean) essentially.
-###ZOE:No overthinking!  You got this.  It is simple once we figured it out.  
+###ZOE:No overthinking!  You got this.  It is simple once we figured it out.     
 5. In the final histogram I mention this but I want this plotted with a point for every weekend, not a barplot of overall means. I'm not sure a) how to do this and b) if I'm even suppose to be doing this
 ###ZOE:I think we discussed/decided that this should be frequency of calls per hour.
