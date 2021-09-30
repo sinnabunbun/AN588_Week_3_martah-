@@ -49,7 +49,7 @@ dpois(3,15)
 ```{r Poisson 0 to 30} 
 ###Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.
 
-x<-0:30
+x<-0:30 
 
 ###X is the range which we are considering. 
 
