@@ -46,7 +46,7 @@ dpois(3,15)
 
 ###It would make sense if we did the same thing with zero calls, but replaced the zero with 3. 
 ```
-```{r Poisson 0 to 30}
+```{r Poisson 0 to 30} 
 ###Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.
 
 x<-0:30
