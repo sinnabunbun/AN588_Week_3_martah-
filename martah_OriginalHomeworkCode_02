@@ -14,13 +14,16 @@ Alright I'm starting with an attempt to use poissson distribution.
 x<- rpois(1, 15) #where 1 is the n value since its 15 is the  mean of the two hours and 15 is the mean or lambda
 x
 
-#Talking to Zoe I realized this isn't necessary but It does help me visualize so I'llk keep it in
+#Talking to Zoe I realized this isn't necessary but It does help me visualize so I'll keep it in
 ```
+Important thing I kept mixing up `dpois` and `ppois` which is bad >>:( ppois is a cumulative probability function while dpois is a probabilty density function which will give you the probabality of a given 
+value 
 
 ``` {r morethan}
-1-dpois(8, 15)
-#find the inverse of the distribution of ppois where x=8 and lambda=15. lower=true was to give us 8 or more.
+1-ppois(8, 15)
+#find the inverse of the distribution of ppois where x=8 and lambda=15. Switched out ppois with dpois but ppois is the _cummulative probability_
 ```
+Also can use `ppois(8, 15, lower.tail = F)` instead of getting the complement or inverse using `1 - ppois` 
 
 ``` {r nocalls}
 dpois(0, 15) #this is using the same function as above, substituting x for 0 instead of 8 
@@ -32,9 +35,9 @@ dpois(3, 15) #again, substitute x for 3 to get three calls
 
 ``` {r 1-30}
 calls<- 0:30
-barplot(dpois(calls, 15), calls, xlab = "Calls",
+barplot(dpois(calls, 15), xlab = "Calls",
     ylab = "Frequency", col = "orange")
-#plotting the data where data = 1:30 and the formula is `dpois(calls, 15)`
+#plotting the data in a barplot
 ```
 ``` {r 104}
 exampledist<- rpois(104, 15)
@@ -43,9 +46,10 @@ exampledist
 ```
 
 ``` {r hist}
-hist(exampledist, freq = FALSE, col = "purple", main = "Titi Calls Over 2 Years", xlab = "Calls",
-    ylab = "Frequency", xlim = c(0, 30))
+hist(exampledist, col = "purple", main = "Titi Calls Over 2 Years", xlab = "Calls",
+    ylab = "Frequency", xlim = c(0, 30), breaks = 30)
 ```
+I originally had `freq = F` which put my y-axis in .00 magnitude. Not sure entirely how this helps/hurts but I took it out and added breaks in the graph.
 
 ## Challenges
 
