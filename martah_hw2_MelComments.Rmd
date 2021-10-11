@@ -1,0 +1,76 @@
+---
+title: "martah_FinalHomeworkCode_02"
+author: "Marta"
+date: "10/1/2021"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Alright I'm starting with an attempt to use poissson distribution.
+
+``` {r poisson}
+x<- rpois(1, 15) #where 1 is the n value since its 15 is the  mean of the two hours and 15 is the mean or lambda
+x
+
+#Talking to Zoe I realized this isn't necessary but It does help me visualize so I'llk keep it in
+```
+
+``` {r morethan}
+1-dpois(8, 15)
+#find the inverse of the distribution of ppois where x=8 and lambda=15. lower=true was to give us 8 or more.
+```
+
+*you have the right idea with the invese, but you should instead be using the ppois() fucntion, which takes the cumulative probability (prob that the value will be 8 or over). You can either subtract it by 1 or set lower.tail = False because it automatically takes the lower tail if you do not. - Mel*
+
+``` {r nocalls}
+dpois(0, 15) #this is using the same function as above, substituting x for 0 instead of 8 
+```
+
+``` {r 3calls}
+dpois(3, 15) #again, substitute x for 3 to get three calls
+```
+
+``` {r 1-30}
+calls<- 0:30
+barplot(dpois(calls, 15), calls, xlab = "Calls",
+    ylab = "Frequency", col = "orange")
+#plotting the data where data = 1:30 and the formula is `dpois(calls, 15)`
+```
+
+*use names.arg = calls to replaces where you just put "calls" in your barplot function to readjust your x axis and assign the variable
+
+``` {r 104}
+exampledist<- rpois(104, 15)
+exampledist
+#still unsure how `set.seed()` works and if it would be helpful here?
+```
+
+``` {r hist}
+hist(exampledist, freq = FALSE, col = "purple", main = "Titi Calls Over 2 Years", xlab = "Calls",
+    ylab = "Frequency", xlim = c(0, 30))
+```
+
+*settng the breaks in the hist() will make the data more distinguishable*
+
+## Challenges
+
+1. I'm very concerned with how low my probabilities are in the first section, part of the problem is I'm not sure of the magnitude of the values like should they be over 1, under 1, etc.?  
+  _ZOE: Because its a probability, it should be under one?_  
+  Me and Zoe worked this out!I forgot most frequencies are expressed as percentages so it makes sense for it to be under 1. *yes! and it makes sense for some of them to be low for low predicted values (especially 0) given the mean is 15, and the probability goes up as you get closer. -Mel*
+  
+2. With lambda, if I use `x` that is a variable variable if that makes sense. It vastly changes the results if I use x, 15 (the mean), or the function itself. I simply do not know what is the proper lambda is??  
+  _ZOE:I also struggled with this.  I think 15 has more significance than just her hypothesis._  
+  Yes, and we decided using 15 as the mean every time will give the averages as opposed to a specific variable from the distribution.  
+  
+3. This is a content question, I am not sure when I should be assigning functions to an element. The examples will usually use the function every time but I'm not sure. *it is good practice to do it, because then you can use that object where ever you want in subsequent code, such as where you put your "exampledist" object into the hist() function. -Mel* 
+
+4. The syntax for `rpois` was really confusing a first and now I'm worried it seems to easy. I am operating on (number of vectors, mean) essentially.
+  _ZOE:No over thinking!  You got this.  It is simple once we figured it out._  
+  
+5. In the final histogram I mention this but I want this plotted with a point for every weekend, not a barplot of overall means. I'm not sure a) how to do this and b) if I'm even suppose to be doing this  
+_ZOE:I think we discussed/decided that this should be frequency of calls per hour._  
+Yes, I was confused that we were plotting frequencies instead of points but this makes more sense now.
+
+*Be sure differentiate between your original homework (what your peers look at) and your final homework in the name of your markdown. -Mel*
